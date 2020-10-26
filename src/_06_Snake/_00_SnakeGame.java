@@ -90,13 +90,13 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   of the game. The smaller the number, the faster it goes.
 	    switch(input) {
 	    case 0:
-	    	timer.setDelay(2);
+	    	timer.setDelay(230);
 	    	break;
 	    case 1:
-	    	timer.setDelay(4);
+	    	timer.setDelay(240);
 	    	break;
 	    case 2:
-	    	timer.setDelay(6);
+	    	timer.setDelay(250);
 	    	break;
 	    }
 		//3. start the timer
@@ -194,14 +194,17 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//2. if the snake is colliding with its own body 
 		//   or if the snake is out of bounds, call gameOver
         if(snake.isHeadCollidingWithBody()==true) {
+        	System.out.println("head");
         	gameOver();
         }
         if(snake.isOutOfBounds()==true) {
+        	System.out.println("bounds");
         	gameOver();
         }
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
-        if(snake.getHeadLocation()==foodLocation) {
+        if(snake.getHeadLocation().equals(foodLocation)) {
+        	System.out.println("feed");
         	snake.feed();
         	setFoodLocation();
         }

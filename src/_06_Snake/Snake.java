@@ -67,7 +67,7 @@ public class Snake {
 		
 		
 		//3. set the location of the head to the new location calculated in step 1
-		head.setLocation(new Location(nextX, nextY));
+		head.setLocation(new Location(head.getLocation().x + nextX,head.getLocation().y + nextY));
 
 		//4. set canMove to true
 		canMove=true;
@@ -102,7 +102,10 @@ public class Snake {
 	public boolean isOutOfBounds() {
 		//1. complete the method so it returns true if the head of the snake is outside of the window
 		//   and false otherwise
-		if(head.getLocation().x>_00_SnakeGame.WIDTH || head.getLocation().y>_00_SnakeGame.HEIGHT || head.getLocation().x<_00_SnakeGame.WIDTH || head.getLocation().y<_00_SnakeGame.HEIGHT) {
+		if(head.getLocation().x>_00_SnakeGame.WIDTH 
+				|| head.getLocation().y>_00_SnakeGame.HEIGHT
+				|| head.getLocation().x<0
+				|| head.getLocation().y<0) {
 			return true;
 		}
 		else {
